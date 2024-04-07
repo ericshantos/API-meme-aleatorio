@@ -25,9 +25,6 @@ Exemplo de uso:
 
 """
 
-# Importações de módulos internos
-from .get_meme_aleatorio import get_meme_aleatorio
-
 # Código de inicialização
 print("O pacote get_img foi carregado")
 

@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+"""
+@Author  : Eric dos Santos (ericshantos13@gmail.com)
+Pacote que trata a imagem PIL e a retorna como JPEG
+"""
+
 from io import BytesIO
 from flask import send_file
 
