@@ -84,4 +84,3 @@ def get_meme_aleatorio():
     else:
         # Se a operação falhar, retorne None
         return None
-    

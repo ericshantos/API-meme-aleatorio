@@ -7,7 +7,7 @@ Flask API que retorna memes aleatórios de programação
 import random
 from flask import Flask
 from PIL import Image
-from app.get_imgs.get_meme_aleatorio import get_meme_aleatorio, requisicao_memedroid
+from app.get_imgs.get_imgs import get_meme_aleatorio, requisicao_memedroid
 from app.tratar_imagem_pil.tratar_imagem_pil import send_file_meme
 
 
