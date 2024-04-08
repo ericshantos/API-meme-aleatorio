@@ -1,0 +1,48 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.5.0
+    hooks:
+
+        # detecta e corrigi espaços em branco no final das linhas em arquivos de código-fonte
+      - id: trailing-whitespace
+
+        # Adiciona uma linha em branco ao final de arquivos sem uma
+      - id: end-of-file-fixer
+
+        #  Verifica se os arquivos YAML estão bem formados
+      - id: check-yaml
+
+        #  Este gancho verifica se arquivos grandes estão sendo adicionados ao repositório
+      - id: check-case-conflict
+
+        #Verifica se há conflitos de mesclagem deixados em arquivos
+      - id: check-merge-conflict
+
+        # Ordena as dependências no arquivo requirements.txt
+      - id: requirements-txt-fixer
+
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.8
+      stages: [commit-msg]
+
+-   repo: local
+    hooks:
+      - id: requirements
+        name: requirements
+        entry: 'pip freeze > requirements.txt; git add requirements.txt'
+        language: system
+        pass_filenames: false
+        stages: [commit-msg]
+
+-   repo: local
+    hooks:
+      - id: unittest
+        name: unittest
+        language: system
+        entry: python -m unittest discover test
+        always_run: true
+        pass_filenames: false
+        stages: [commit]
