@@ -6,9 +6,10 @@ Pacote responsável por fazer requisição HTTP e extrair as URLs da resposta
 
 import requests
 from bs4 import BeautifulSoup
+from typing import Union
 
 
-def extrair_urls_imagens(resposta):
+def extrair_urls_imagens(resposta: requests.models.Response) -> list:
     """
     Extrai URLs de imagens de memes de uma resposta HTML.
 
@@ -40,7 +41,7 @@ def extrair_urls_imagens(resposta):
     return imgs
 
 
-def requisicao_memedroid(url, valor_stream=None):
+def requisicao_memedroid(url: str, valor_stream=None) -> requests.models.Response:
     """
     Faz uma requisição GET para a URL especificada.
 
@@ -60,7 +61,7 @@ def requisicao_memedroid(url, valor_stream=None):
     return retorno_requisicao
 
 
-def get_meme_aleatorio():
+def get_meme_aleatorio() -> Union[list, None]:
     """
     Obtém uma lista de URLs de memes aleatórios relacionados à programação do site Memedroid.
 
