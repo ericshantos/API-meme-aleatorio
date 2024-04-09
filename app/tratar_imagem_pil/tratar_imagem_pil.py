@@ -5,10 +5,11 @@ Pacote que trata a imagem PIL e a retorna como JPEG
 """
 
 from io import BytesIO
-from flask import send_file
+from flask import send_file, Response
+from PIL import Image
 
 
-def tratar_imagem_pil(imagem_meme):
+def tratar_imagem_pil(imagem_meme: "Image") -> "BytesIO":
     """
     Processa uma imagem de meme.
 
@@ -33,7 +34,7 @@ def tratar_imagem_pil(imagem_meme):
     return meme_io
 
 
-def send_file_meme(img_meme):
+def send_file_meme(img_meme: Image.Image) -> Response:
     """
     Envia um arquivo de imagem JPEG como resposta HTTP.
 
