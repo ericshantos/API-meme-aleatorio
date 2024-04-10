@@ -17,8 +17,9 @@ Esta é uma API Rest Flask que fornece acesso a memes aleatórios do site Memedr
 
 <summary>Instalação</summary>
 
-> [IMPORTANT]
-> É necessário versão 3.12.2 do Python ou superior.
+<br>
+
+**IMPORTANTE**: É necessário Python 3.12 ou superior.
 
 Para começar a desfrutar do meme-aleatorio, siga estas simples etapas de instalação:
 
