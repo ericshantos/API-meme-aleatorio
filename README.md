@@ -173,10 +173,6 @@ Se você encontrar algum problema com o projeto ou tiver uma sugestão para melh
   - Visual Studio Code
   - Git
 
-- Plataformas e Serviços:
-  -
-
-
 </details>
 
 <details>
