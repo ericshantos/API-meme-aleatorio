@@ -4,17 +4,18 @@
 Pacote responsável por fazer requisição HTTP e extrair as URLs da resposta
 """
 
+from typing import Union
 import requests
 from bs4 import BeautifulSoup
 from typing import Union
 
 
-def extrair_urls_imagens(resposta: requests.models.Response) -> list:
+def extrair_urls_imagens(resposta: requests.models.Response) -> list[str]:
     """
     Extrai URLs de imagens de memes de uma resposta HTML.
 
     Args:
-        resposta (requests.models.Response): Resposta HTML de uma requisição web.
+        - resposta (requests.models.Response): Resposta HTML de uma requisição web.
 
     Returns:
         list: Uma lista contendo URLs das imagens de memes encontradas na resposta.
@@ -45,33 +46,39 @@ def requisicao_memedroid(url: str, valor_stream=None) -> requests.models.Respons
     """
     Faz uma requisição GET para a URL especificada.
 
-    Envia uma solicitação GET para a página principal da URL fornecida, opcionalmente permitindo o streaming
-    do conteúdo da resposta de acordo com o valor do parâmetro `valor_stream`.
+    Envia uma solicitação GET para a página principal da URL fornecida,
+    opcionalmente permitindo o streaming do conteúdo da resposta de
+    acordo com o valor do parâmetro `valor_stream`.
+    Se a requisição demorar mais de 10 segundos, a requisição é inserada.
 
     Args:
-        url (str): A URL para a qual a requisição GET será feita.
-        valor_stream (bool, optional): Se verdadeiro, permite o streaming do conteúdo da resposta. Padrão é None.
+        - url (str): A URL para a qual a requisição GET será feita.
+        - valor_stream (bool, optional): Se verdadeiro, permite o streaming
+        do conteúdo da resposta. Padrão é None.
 
     Returns:
         retorno_requisicao: Objeto de resposta da requisição.
     """
     # Envia uma solicitação GET para a página principal
-    retorno_requisicao = requests.get(url, stream=valor_stream)
+    retorno_requisicao = requests.get(url, stream=valor_stream, timeout=10)
 
     return retorno_requisicao
 
 
 def get_meme_aleatorio() -> Union[list, None]:
     """
-    Obtém uma lista de URLs de memes aleatórios relacionados à programação do site Memedroid.
+    Obtém uma lista de URLs de memes aleatórios relacionados à
+    programação do site Memedroid.
 
-    Faz uma requisição GET para a página que contém memes relacionados à programação no site Memedroid.
+    Faz uma requisição GET para a página que contém memes relacionados
+    à programação no site Memedroid.
     Verifica se a solicitação foi bem-sucedida (código de status HTTP 200).
-    Se a solicitação for bem-sucedida, extrai as URLs das imagens dos memes e as retorna como uma lista.
-    Caso contrário, retorna None.
+    Se a solicitação for bem-sucedida, extrai as URLs das imagens dos
+    memes e as retorna como uma lista. Caso contrário, retorna None.
 
     Returns:
-        urls_memes (list or None): Lista de URLs das imagens dos memes, ou None se a requisição falhar.
+        urls_memes (list or None): Lista de URLs das imagens dos memes,
+        ou None se a requisição falhar.
     """
     retorno_requisicao = requisicao_memedroid(
         "https://www.memedroid.com/memes/tag/programming"

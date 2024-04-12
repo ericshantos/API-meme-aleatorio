@@ -8,7 +8,8 @@ from io import BytesIO
 from flask import send_file, Response
 from PIL import Image
 
-def tratar_imagem_pil(imagem_meme: "PIL.Image") -> "BytesIO":
+
+def tratar_imagem_pil(imagem_meme: "Image") -> "BytesIO":
     """
     Processa uma imagem de meme.
 
