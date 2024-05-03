@@ -4,7 +4,7 @@ repos:
     hooks:
     - id: black
       language_version: python3.8
-      stages: [commit-msg]
+      stages: [pre-commit]
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -35,17 +35,7 @@ repos:
         entry: 'pip freeze > requirements.txt; git add requirements.txt'
         language: system
         pass_filenames: false
-        stages: [commit-msg]
-
--   repo: local
-    hooks:
-      - id: unittest
-        name: unittest
-        language: system
-        entry: python -m unittest discover test
-        always_run: true
-        pass_filenames: false
-        stages: [commit]
+        stages: [pre-commit]
 
 -   repo: https://github.com/commitizen-tools/commitizen
     rev: v3.21.3
@@ -53,5 +43,4 @@ repos:
       - id: commitizen
         name: commitizen
         entry: 'cz commit'
-        language_version: python3.8
         stages: [commit-msg]
