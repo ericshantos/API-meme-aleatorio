@@ -1,7 +1,7 @@
 import unittest
 from PIL import Image
 from io import BytesIO
-from app.tratar_imagem_pil.tratar_imagem_pil import tratar_imagem_pil
+from app.tratar_midia.tratar_imagem_pil import tratar_imagem_pil
 
 
 class TestTratarImagemPIL(unittest.TestCase):
