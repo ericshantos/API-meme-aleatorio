@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from app.get_imgs.get_imgs import requisicao_memedroid, extrair_urls_imagens
+from app.get_midia.requisicao_http import requisicao_memedroid, extrair_urls_imagens
 
 
 class TestGetImgs(unittest.TestCase):
