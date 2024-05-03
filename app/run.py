@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-@Author  : Eric dos Santos (ericshantos13@gmail.com)
-Flask API que retorna memes aleatórios de programação
+@Author: Eric dos Santos (ericshantos13@gmail.com)
+Flask API que retorna memes aleatórios de programação.
 """
 
 import random
 from flask import Flask
-from PIL import Image
-from app.get_imgs.get_imgs import get_meme_aleatorio, requisicao_memedroid
-from app.tratar_imagem_pil.tratar_imagem_pil import send_file_meme
-
+import get_midia, tratar_midia
 
 app = Flask(__name__)
 
@@ -47,28 +44,23 @@ def definir_resposta_cabecalho(retorno):
 @app.route("/", methods=["GET"])
 def retornar_meme():
     """
-    Retorna um meme aleatório.
+    Rota para obter um meme aleatório.
 
-    Faz uma requisição HTTP para obter um meme aleatório do site memedroid.
-    A imagem é processada utilizando a função tratar_imagem_pil e retornada como resposta.
-
-    Returns:
-        response: Imagem do meme processada.
+    Retorna:
+        Um arquivo de mídia (imagem) contendo um meme aleatório.
     """
-    # URL do meme aleatório
-    url_meme = random.choice(get_meme_aleatorio())
+    # Obtém a lista de URLs de memes aleatórios
+    lista_meme = get_midia.get_meme_aleatorio()
 
-    # Solicita o meme aleatório para memedroid
-    repescagem_meme = requisicao_memedroid(url_meme, True)
+    # Verifica se a lista de memes é válida
+    if lista_meme:
+        # URL do meme aleatório
+        url_meme = random.choice(lista_meme)
 
-    # Descodifica o conteúdo da resposta
-    repescagem_meme.raw.decode_content = True
+        # Solicita o meme aleatório para memedroid
+        repescagem_meme = get_midia.requisicao_memedroid(url_meme, valor_stream=True)
 
-    # Abre a resposta HTTP
-    meme = Image.open(repescagem_meme.raw)
-
-    # Retorna a imagem processada pelo método tratar_imagem_pil
-    return send_file_meme(meme)
+        return tratar_midia.send_file_meme(repescagem_meme)
 
 
 if __name__ == "__main__":
