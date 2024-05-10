@@ -21,7 +21,9 @@ setup(
         "Development Status :: 2 - Pre-Alpha",
         "Development Status :: 3 - Alpha",
         "Development Status :: 4 - Beta",
-        "Development Status :: 5 - Production/Stable"
+        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 6 - Mature",
+        "Development Status :: 7 - Inactive",
         "Operating System :: Microsoft :: Windows",
         "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
