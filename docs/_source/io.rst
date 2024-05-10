@@ -29,12 +29,16 @@ Recursos principais
 
 - **API uniforme**: A io fornece uma API consistente para trabalhar com diferentes tipos de streams de
 entrada e saída, incluindo arquivos, strings e bytes.
+
 - **Flexibilidade**: A biblioteca io suporta uma variedade de operações de E/S, como leitura, gravação,
 redirecionamento e manipulação de buffers.
+
 - **Compatibilidade**: Os objetos de stream da io são projetados para serem compatíveis com muitas outras
 partes da biblioteca padrão do Python, facilitando a integração em aplicativos existentes.
+
 - **Eficiência**: A io é otimizada para desempenho, garantindo operações de E/S rápidas e eficientes em
 uma ampla variedade de cenários.
+
 - **Extensibilidade**: Os desenvolvedores podem estender a funcionalidade da biblioteca io criando seus
 próprios objetos de stream personalizados, se necessário.
 
