@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="API-meme-aleatorio",
-    version="1.0.0",
+    version="9.5.1",
     packages=find_packages(),
     install_requires=["app", "get_imgs", "tratar_imagem_pil"],
     author="Eric dos Santos",
