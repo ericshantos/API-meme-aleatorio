@@ -3,16 +3,16 @@ Biblioteca Os
 ==============
 
 .. image:: https://img.shields.io/pypi/v/os.svg
-:target: https://pypi.python.org/pypi/os
-:alt: Última Versão
+     :target: https://pypi.python.org/pypi/os
+     :alt: Última Versão
 
 .. image:: https://img.shields.io/pypi/dm/os.svg
-:target: https://pypi.python.org/pypi/os
-:alt: Downloads
+     :target: https://pypi.python.org/pypi/os
+     :alt: Downloads
 
 .. image:: https://img.shields.io/github/license/python/os.svg
-:target: https://github.com/python/os/blob/main/LICENSE
-:alt: Licença
+     :target: https://github.com/python/os/blob/main/LICENSE
+     :alt: Licença
 
 Os é uma biblioteca Python que fornece uma interface para funcionalidades específicas do sistema operacional,
 permitindo que os desenvolvedores interajam com o sistema de arquivos, variáveis de ambiente, processos e muito
@@ -29,12 +29,16 @@ Recursos principais
 
 - **Interface consistente**: Os fornece uma interface consistente para funcionalidades relacionadas ao sistema
 operacional, independentemente da plataforma.
+
 - **Portabilidade**: Os aplicativos desenvolvidos com Os podem ser executados em diferentes sistemas
 operacionais sem modificações significativas.
+
 - **Manipulação de arquivos e diretórios**: Os permite que os desenvolvedores criem, modifiquem e removam
 arquivos e diretórios no sistema de arquivos.
+
 - **Controle de processos**: Os oferece funcionalidades para criar, gerenciar e interagir com processos
 do sistema operacional.
+
 - **Variáveis de ambiente**: Os permite acesso e manipulação das variáveis de ambiente do sistema operacional.
 
 Uso básico
@@ -44,8 +48,6 @@ Instale a biblioteca Os via pip:
 
 .. code-block:: bash
 
-     lua
-     Copy code
      $ pip install os
 
 Utilize as funcionalidades oferecidas pela biblioteca Os em seu código Python para interagir com o sistema operacional.
@@ -53,6 +55,6 @@ Utilize as funcionalidades oferecidas pela biblioteca Os em seu código Python p
 Links
 ------
 
-Repositório oficial no GitHub <https://github.com/python/os>_
-Documentação oficial <https://os.readthedocs.io>_
-PyPI <https://pypi.org/project/os>_
+- `Repositório oficial no GitHub <https://github.com/python/os>`_
+- `Documentação oficial <https://os.readthedocs.io>`_
+- `PyPI <https://pypi.org/project/os>`_

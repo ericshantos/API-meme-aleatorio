@@ -10,6 +10,9 @@ repos:
     rev: v4.6.0
     hooks:
 
+        # Adiciona uma linha em branco ao final de arquivos sem uma
+      - id: end-of-file-fixer
+
         #  Verifica se os arquivos YAML estão bem formados
       - id: check-yaml
 
@@ -21,9 +24,6 @@ repos:
 
         # Ordena as dependências no arquivo requirements.txt
       - id: requirements-txt-fixer
-
-        # Adiciona uma linha em branco ao final de arquivos sem uma
-      - id: end-of-file-fixer
 
         # detecta e corrigi espaços em branco no final das linhas em arquivos de código-fonte
       - id: trailing-whitespace

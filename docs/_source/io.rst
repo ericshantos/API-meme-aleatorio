@@ -3,16 +3,16 @@ Biblioteca io
 ==============
 
 .. image:: https://img.shields.io/pypi/v/io.svg
-:target: https://pypi.python.org/pypi/io
-:alt: Última Versão
+     :target: https://pypi.python.org/pypi/io
+     :alt: Última Versão
 
 .. image:: https://img.shields.io/pypi/dm/io.svg
-:target: https://pypi.python.org/pypi/io
-:alt: Downloads
+     :target: https://pypi.python.org/pypi/io
+     :alt: Downloads
 
 .. image:: https://img.shields.io/github/license/python/io.svg
-:target: https://github.com/python/io/blob/main/LICENSE
-:alt: Licença
+     :target: https://github.com/python/io/blob/main/LICENSE
+     :alt: Licença
 
 A biblioteca io é uma parte integrante da biblioteca padrão do Python que fornece funcionalidades
 para trabalhar com streams de entrada e saída (I/O). Ela oferece uma API consistente para lidar
@@ -46,8 +46,6 @@ Para começar a usar, basta importar a biblioteca em seu código Python:
 
 .. code-block:: python
 
-     arduino
-     Copy code
      import io
 
 Use os objetos de stream fornecidos pela biblioteca io para realizar operações de entrada e saída de dados, conforme necessário.
@@ -55,5 +53,6 @@ Use os objetos de stream fornecidos pela biblioteca io para realizar operações
 Links
 ------
 
-Documentação oficial <https://docs.python.org/3/library/io.html>_
-PyPI <https://pypi.org/project/io>_
+- `Documentação oficial <https://docs.python.org/3/library/io.html>`_
+
+- `PyPI <https://pypi.org/project/io>`_
