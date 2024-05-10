@@ -168,11 +168,9 @@ Se você encontrar algum problema com o projeto ou tiver uma sugestão para melh
   - [PIL](docs/_source/PIL.rst): manipulação de imagens.
   - [Sphinx](docs/_source/sphinx.rst): documentação.
   - [BS4](docs/_source/bs4.rst):extrai dados de arquivos HTML e XML.
-  - Os: Manipulação de arquivos e funcionalidades dependentes do sistema operacional.
-  - Tenpfile: Criação segura de arquivos temporários e diretórios temporários.
-  - Cv2: Processamento de imagem e visão computacional.
-  - Io: Manipulação de entrada/saída (I/O) em Python.
-  - Typing: Adição de anotações de tipo opcional ao código Python.
+  - [Os](docs/_source//os.rst): Manipulação de arquivos e funcionalidades dependentes do sistema operacional.
+  - [Io](docs/_source/io.rst): Manipulação de entrada/saída (I/O) em Python.
+  - [Typing](docs/_source/typing.rst): Adição de anotações de tipo opcional ao código Python.
 
 - Ferramentas de Desenvolvimento:
   - Visual Studio Code
