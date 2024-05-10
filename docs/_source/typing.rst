@@ -49,7 +49,7 @@ Para começar a usar a classe Union, importe-a da biblioteca typing em seu códi
 
      from typing import Union
 
-Em seguida, você pode usar Union para definir tipos que podem ser um de vários tipos diferentes. Por exemplo:
+Em seguida, você pode usar Union  para definir tipos que podem ser um de vários tipos diferentes. Por exemplo:
 
 .. code-block:: python
 
