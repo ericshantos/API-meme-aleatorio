@@ -4,15 +4,23 @@
 Módulo responsável por tratar os frames de vídeo.
 """
 
-from typing import Generator
-import cv2, os, tempfile, requests
+import requests
+from io import BytesIO
 
 
-def processar_video(
-    midia_video: requests.models.Response,
-) -> Generator[bytes, None, None]:
+def processar_video(midia_video: requests.models.Response) -> BytesIO:
     """
-    Processa um vídeo recebido como uma resposta HTTP.
+    Processa a resposta de um vídeo obtido através de uma requisição HTTP.
+
+    Parameters:
+    midia_video (requests.models.Response): A resposta HTTP contendo o vídeo.
+
+    Returns:
+    BytesIO: Um objeto BytesIO contendo os bytes do vídeo.
+
+    Raises:
+    ValueError: Se a resposta de vídeo for None ou se o conteúdo do vídeo estiver vazio.
+    Exception: Qualquer outro erro inesperado durante o processamento do vídeo.
     """
     try:
         if midia_video is None:
@@ -25,42 +33,17 @@ def processar_video(
         if not video_bytes:
             raise ValueError("O conteúdo do vídeo está vazio.")
 
-        # Salva o vídeo em um arquivo temporário
-        with tempfile.NamedTemporaryFile(suffix=".mp4", delete=False) as temp_file:
-            temp_file.write(video_bytes)
-            temp_filename = temp_file.name
+        # Cria um objeto BytesIO para armazenar os bytes do vídeo
+        video_io = BytesIO()
 
-        # Cria um objeto VideoCapture para ler o vídeo
-        video = cv2.VideoCapture(temp_filename)
+        # Escreve os bytes do vídeo no objeto BytesIO
+        video_io.write(video_bytes)
+        video_io.seek(0)  # Volta para o início do objeto BytesIO
 
-        # Verifica se a decodificação foi bem-sucedida
-        if not video.isOpened():
-            raise ValueError("Falha ao decodificar o conteúdo do vídeo.")
-
-        # Loop para processar cada frame do vídeo
-        while True:
-            ret, frame = video.read()
-            if not ret:
-                break
-
-            # Converte o frame para um formato adequado para resposta HTTP
-            ret, buffer = cv2.imencode(".jpg", frame)
-            frame_bytes = buffer.tobytes()
-            yield (
-                b"--frame\r\n"
-                b"Content-Type: image/jpeg\r\n\r\n" + frame_bytes + b"\r\n"
-            )
-
-        # Libera os recursos do vídeo
-        video.release()
+        return video_io
 
     except ValueError as ve:
         print(f"Erro ao processar o vídeo: {ve}")
 
     except Exception as e:
         print(f"Erro inesperado ao processar o vídeo: {e}")
-
-    finally:
-        # Remove o arquivo temporário
-        if temp_filename:
-            os.unlink(temp_filename)

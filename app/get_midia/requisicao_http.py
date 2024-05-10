@@ -7,7 +7,7 @@ Módulo responsável por fazer requisição HTTP e extrair as URLs da resposta.
 from typing import Union
 from .extrair_url_img import extrair_urls_imagens
 from .extrair_url_video import extrair_url_video
-import requests
+import requests, random
 
 
 def requisicao_memedroid(url: str, valor_stream=None) -> requests.models.Response:
@@ -43,18 +43,17 @@ def get_meme_aleatorio() -> Union[list, None]:
     """
     # Faz uma requisição GET para a página de memes relacionados à programação
     retorno_requisicao = requisicao_memedroid(
-        "https://pt.memedroid.com/memes/tag/programa%C3%A7%C3%A3o"
+        "https://pt.memedroid.com/memes/tag/programador"
     )
 
     # Verificar se a solicitação foi bem-sucedida (código de status HTTP 200)
-    if retorno_requisicao.status_code == 200:
+    if retorno_requisicao.status_code != 404:
 
         # Extrai as URLs das imagens e dos vídeos dos memes
-        url_midias = extrair_urls_imagens(retorno_requisicao) + extrair_url_video(
-            retorno_requisicao
-        )
+        url_videos = extrair_url_video(retorno_requisicao)
+        url_imagems = extrair_urls_imagens(retorno_requisicao)
 
-        return url_midias
+        return random.choice([url_imagems, url_videos])
 
     else:
         # Se a operação falhar, retorne None

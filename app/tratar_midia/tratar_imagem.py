@@ -9,7 +9,7 @@ from PIL import Image
 import requests
 
 
-def tratar_imagem_pil(imagem_meme: requests.models.Response) -> BytesIO:
+def processar_imagem(imagem_meme: requests.models.Response) -> BytesIO:
     """
     Processa uma imagem de meme.
 
