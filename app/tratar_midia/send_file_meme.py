@@ -5,12 +5,13 @@ Módulo responsável por enviar a resposta da requisição GET.
 """
 
 from typing import Union
-from flask import Response
-import tratar_midia
+from flask import send_file
+from .tratar_imagem import processar_imagem
+from .tratar_video import processar_video
 import requests
 
 
-def send_file_meme(obj_midia: requests.models.Response) -> Union[Response, bytes]:
+def send_file_meme(obj_midia: requests.models.Response) -> Union[bytes, str]:
     """
     Envia um arquivo de mídia como resposta HTTP.
 
@@ -27,17 +28,11 @@ def send_file_meme(obj_midia: requests.models.Response) -> Union[Response, bytes
     # Verifica se é uma imagem
     if content_type.startswith("image"):
 
-        retorno_midia, mimetype = (
-            tratar_midia.tratar_imagem_pil(obj_midia.raw),
-            content_type,
-        )
+        retorno_midia = processar_imagem(obj_midia.raw)
 
     # Verifica se é um vídeo
     elif content_type.startswith("video"):
 
-        retorno_midia, mimetype = (
-            tratar_midia.processar_video(obj_midia),
-            "multipart/x-mixed-replace; boundary=frame",
-        )
+        retorno_midia = processar_video(obj_midia)
 
-    return Response(retorno_midia, mimetype=mimetype)
+    return send_file(retorno_midia, content_type)

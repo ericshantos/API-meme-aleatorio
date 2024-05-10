@@ -28,7 +28,7 @@ Exemplo de uso:
 """
 
 # Importação interna dos módulos
-from .tratar_imagem import tratar_imagem_pil
+from .tratar_imagem import processar_imagem
 from .tratar_video import processar_video
 from .send_file_meme import send_file_meme
 
